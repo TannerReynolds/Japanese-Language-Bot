@@ -1,0 +1,22 @@
+{
+  "name": "japanese-language-bot",
+  "version": "1.0.0",
+  "description": "A Discord bot that helps you learn how to read, write, and speak Japanese, made for English speakers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TannerReynolds/Japanese-Language-Bot.git"
+  },
+  "author": "TannerReynolds",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TannerReynolds/Japanese-Language-Bot/issues"
+  },
+  "homepage": "https://github.com/TannerReynolds/Japanese-Language-Bot#readme",
+  "dependencies": {
+    "discord.js": "^14.7.1"
+  }
+}
