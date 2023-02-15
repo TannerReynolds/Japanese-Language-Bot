@@ -1,9 +1,13 @@
+import Tesseract from 'tesseract.js';
+import fs from 'fs';
 
-let response = "Ga"
+fs.readFile('./jp.jpg', (err, data) => {
 
-let romaji = "Ga"
-
-let hiragana = "が"
-
-
-console.log(romaji.toLowerCase() === response.toLowerCase() || hiragana === response.content.toLowerCase())
+    Tesseract.recognize(
+        data,
+        'jpn',
+        { logger: m => console.log(m) }
+    ).then(({ data: { text } }) => {
+        console.log(text);
+    })
+});
