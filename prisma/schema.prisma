@@ -11,40 +11,41 @@ datasource db {
 }
 
 model User {
-  id              String   @id
-  score           Int      @default(0)
-  badges          String[] @default(["Learner"])
-  rank            String   @default("Learner")
-  premium         Boolean  @default(false)
-  enrolledDate    DateTime @default(now())
-  lessonsComplete String[] @default(["0"])
-  exams           String[] @default(["0"])
+  id              String       @id
+  score           Int          @default(0)
+  level           Int          @default(1)
+  badges          String[]     @default(["Learner"])
+  rank            String       @default("Learner")
+  premium         Boolean      @default(false)
+  enrolledDate    DateTime     @default(now())
+  lessonsComplete String[]     @default(["0"])
+  exams           String[]     @default(["0"])
+  quizzes         CustomQuiz[]
+
+  @@unique(id)
+  @@index(id)
+}
+
+model CustomQuiz {
+  id        String   @id
+  questions String[]
+  answers   String[]
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    String?
 
   @@unique(id)
   @@index(id)
 }
 
 enum Rank {
-  Learner
-  Intermediate
-  Advanced
-  Master
-  NativeJapaneseSpeaker
+  Unranked
+  AllAccessStudent
+  N5
+  N4
+  N3
+  N2
+  N1
   Contributor
   StaffMember
   Developer
-}
-
-enum Badge {
-  Learner
-  ConquerorOfHiragana
-  VanquisherOfKatakana
-  SubjugatorOfKanji
-  OneHundred
-  OneThousand
-  TenThousand
-  HundredThousand
-  Million
-  TenMillion
-  AllAccessStudent
 }

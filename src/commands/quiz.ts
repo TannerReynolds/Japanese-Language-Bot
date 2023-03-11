@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client"
 const prisma = new PrismaClient();
 
 const { SlashCommandBuilder } = require('discord.js');
-const characterMap = require('../data/characterMap.json');
+const characterMap = require('../data/botData.json');
 const hiraganaSet = characterMap['hiragana'];
 const wait = require('node:timers/promises').setTimeout;
 
